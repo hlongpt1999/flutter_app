@@ -13,7 +13,7 @@ class pageGridView extends StatefulWidget{
 class _gridViewState extends State<pageGridView>{
   List<Sports> sports = Utils.getSport();
 
-  var _gridViewText = "";
+  var _gridViewText = "Click item text";
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +29,8 @@ class _gridViewState extends State<pageGridView>{
 
           Expanded(
             child: GridView.count(
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
               crossAxisCount: 2,
               children: List.generate(
                   sports.length,

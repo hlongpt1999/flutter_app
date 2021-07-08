@@ -15,7 +15,7 @@ class pageHorListView extends StatefulWidget{
 }
 
 class _pageHorListViewState extends State<pageHorListView>{
-  var _listViewText = "";
+  var _listViewText = "Click item text";
   List<Sports> sports = Utils.getSport();
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class pageListView extends StatefulWidget{
 }
 
 class _pageListViewState extends State<pageListView>{
-  var _listViewText = "";
+  var _listViewText = "Click item text";
   List<Sports> sports = Utils.getSport();
   @override
   Widget build(BuildContext context) {
@@ -24,6 +24,7 @@ class _pageListViewState extends State<pageListView>{
             child: Text(_listViewText,
               style: TextStyle(fontSize: 15),),
           ),
+          
 
           Expanded(
             child: ListView.builder(
