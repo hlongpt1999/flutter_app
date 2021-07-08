@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/main.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() =>runApp(MyLogin());
 
@@ -45,6 +46,14 @@ class _LoginAppState extends State<LoginApp>{
             FloatingActionButton.extended(
                 onPressed: (){
                   setState(() {
+                    // Fluttertoast.showToast(
+                    //     msg: "aaaaa",
+                    //     toastLength: Toast.LENGTH_SHORT,
+                    //     gravity: ToastGravity.CENTER,
+                    //     timeInSecForIosWeb: 1,
+                    //     backgroundColor: Colors.red,
+                    //     textColor: Colors.white,
+                    //     fontSize: 16.0);
                     Navigator.push(
                         context, MaterialPageRoute(builder: (context) => HomePage()));
                   });

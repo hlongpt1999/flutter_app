@@ -22,10 +22,41 @@ class Utils{
       ),
 
       Sports(
-          "Swimming",
-          "swimming",
-          0xff263238
+          "Badminton",
+          "badminton",
+          0xff005599
       ),
+
+      Sports(
+          "Baseball",
+          "baseball",
+          0xff336699
+      ),
+
+      Sports(
+          "Cycling",
+          "cycling",
+          0xff669911
+      ),
+
+      Sports(
+          "Goft",
+          "goft",
+          0xff123456
+      ),
+
+      Sports(
+          "Hockey",
+          "hockey",
+          0xff654321
+      ),
+
+      Sports(
+          "Tennis",
+          "tennis",
+          0xff990044
+      ),
+
     ];
   }
 }

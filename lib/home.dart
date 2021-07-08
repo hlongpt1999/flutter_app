@@ -1,89 +1,77 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/bottomBar/pageGridView.dart';
+import 'package:flutter_app/bottomBar/pageHorListView.dart';
 import 'package:flutter_app/object/sports.dart';
 import 'package:flutter_app/object/utils.dart';
 
+import 'bottomBar/pageListView.dart';
+
 class HomePage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: _HomePage(),
+    );
+  }
+}
+
+class _HomePage extends StatefulWidget{
+  @override
+    _HomePageState createState() => _HomePageState() ;
+}
+
+class _HomePageState extends State<_HomePage>{
+
+  int _currentIndex = 0;
+  final List<Widget> bottomBarTabs = <Widget>[
+    pageListView(),
+    pageHorListView(),
+    pageGridView(),
+  ];
 
   List<Sports> sports = Utils.getSport();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                "LIST BUILD",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
-                ),
-              ),
+      body: bottomBarTabs[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.view_list),
+            title: Text(
+              "ListView"
             ),
-            
-            Expanded(
-                child: ListView.builder(
-                  itemCount: sports.length,
-                  itemBuilder: (BuildContext context, int index){
-                    return Container(
-                      margin: EdgeInsets.all(20),
-                      height: 200,
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned.fill(
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset('assets/images/'+sports[index].imgname+'.jpg',
-                                fit:  BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          
-                          Positioned(
-                            left: 10,
-                            top: 10,
-                            child: Row(
-                              children: <Widget>[
-                                ClipOval(
-                                  child: Container(
-                                    color: Color(sports[index].color),
-                                    padding: EdgeInsets.all(10),
-                                    child: FlutterLogo(),
-                                  ),
-                                ),
-
-                                SizedBox(width: 10,),
-                                Text(
-                                  sports[index].name,
-                                  style: TextStyle(
-                                    color: Color(sports[index].color),
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-
-                                ),
-
-                              ],
-                            ),
-                          ),
+          ),
 
 
-                        ],
-                      ),
-
-                    );
-                  },
-                ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.playlist_add_sharp),
+            title: Text(
+                "Hor_View"
             ),
-            
-          ],
-        ),
+          ),
+
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.grid_view),
+            title: Text(
+                "GridView"
+            ),
+          ),
+
+        ],
+
+        currentIndex: _currentIndex,
+        onTap: (index){
+          setState((){
+            _currentIndex = index;
+          });
+        },
+        selectedFontSize: 15,
+        unselectedFontSize: 8,
       ),
     );
   }
-
 }
