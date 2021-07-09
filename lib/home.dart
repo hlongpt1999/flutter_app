@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/bottomBar/pageGridView.dart';
 import 'package:flutter_app/bottomBar/pageHorListView.dart';
+import 'package:flutter_app/bottomBar/pageNestedListView.dart';
 import 'package:flutter_app/object/sports.dart';
 import 'package:flutter_app/object/utils.dart';
 
@@ -28,6 +29,7 @@ class _HomePageState extends State<_HomePage>{
     pageListView(),
     pageHorListView(),
     pageGridView(),
+    pageNestedListView() ,
   ];
 
   List<Sports> sports = Utils.getSport();
@@ -61,6 +63,13 @@ class _HomePageState extends State<_HomePage>{
             ),
           ),
 
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_add_sharp),
+            title: Text(
+                "Nested"
+            ),
+          ),
+
         ],
 
         currentIndex: _currentIndex,
@@ -71,6 +80,9 @@ class _HomePageState extends State<_HomePage>{
         },
         selectedFontSize: 15,
         unselectedFontSize: 8,
+        backgroundColor: Colors.blue,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black12,
       ),
     );
   }

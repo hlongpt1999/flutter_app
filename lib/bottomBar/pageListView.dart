@@ -14,6 +14,16 @@ class pageListView extends StatefulWidget{
 class _pageListViewState extends State<pageListView>{
   var _listViewText = "Click item text";
   List<Sports> sports = Utils.getSport();
+  ScrollController _scrollController = new ScrollController();
+
+
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,10 +34,11 @@ class _pageListViewState extends State<pageListView>{
             child: Text(_listViewText,
               style: TextStyle(fontSize: 15),),
           ),
-          
+
 
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemCount: sports.length,
@@ -89,5 +100,23 @@ class _pageListViewState extends State<pageListView>{
     );
   }  //     style: TextStyle(color: Colors.black,
 
+  void _scrollListener(){
+    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
+    !_scrollController.position.outOfRange){
+      print('i am at the bottom!');
+      setState(() {
+        _listViewText='i am at the bottom!';
+      });
+    }
+
+    if (_scrollController.offset <= _scrollController.position.minScrollExtent &&
+    !_scrollController.position.outOfRange) {
+      print('i am at the top!');
+      setState(() {
+        _listViewText='i am at the top!';
+      });
+    }
+
+  }
 
 }

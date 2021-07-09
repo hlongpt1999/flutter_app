@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/object/sports.dart';
 import 'package:flutter_app/object/utils.dart';
@@ -29,6 +30,7 @@ class _gridViewState extends State<pageGridView>{
 
           Expanded(
             child: GridView.count(
+              scrollDirection: Axis.vertical,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,

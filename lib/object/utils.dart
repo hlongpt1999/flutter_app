@@ -1,6 +1,10 @@
 import 'package:flutter_app/object/sports.dart';
 
+import 'comment.dart';
+
 class Utils{
+
+
   static List<Sports> getSport(){
     return [
       Sports(
@@ -59,4 +63,46 @@ class Utils{
 
     ];
   }
+/*
+  static List<Comment> getComment(){
+    return [
+      Comment(
+          "Very best, haha",
+          "10 mins ago",
+          "1"
+      ),
+
+      Comment(
+          "Great, I like it",
+          "5 mins ago",
+          "2"
+      ),
+
+      Comment(
+          "Good morning",
+          "34 mins ago",
+          "3"
+      ),
+
+      Comment(
+          "I like soccer, ",
+          "5 mins ago",
+          "4"
+      ),
+
+      Comment(
+          "I don't like sporttttttttttt, hmmmmmmmmmmmmmmmmmmm",
+          "56 mins ago",
+          "5"
+      ),
+
+      Comment(
+          "Vietnam ♥♥♥",
+          "77 mins ago",
+          "6"
+      ),
+    ];
+  }
+*/
+  Utils();
 }

@@ -30,53 +30,59 @@ class _pageHorListViewState extends State<pageHorListView>{
           ),
 
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: sports.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: (){
-                    setState(() {
-                      _listViewText = sports[index].name;
-                    });
-                  },
-                  child: SizedBox(
-                    child: Column(
-                      children: [
-                        ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset('assets/images/'+sports[index].imgname+'.jpg', width: 100, height: 150, fit: BoxFit.cover,)),
-                        Container(
-                          margin: EdgeInsets.all(10),
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                            children: [
-                              Text(
-                                "Name: " + sports[index].name,
-                                style: TextStyle(color: Colors.white),
-                                textAlign: TextAlign.left,
-                              ),
-                              Text(
-                                "Color: " + sports[index].color.toString(),
-                                style: TextStyle(color: Colors.white),
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
-                          ),
-                          color: Color(sports[index].color),
-                        ),
-
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
+            child: HorListView(),
           ),
         ],
       ),
     );
   }
 
+  Widget HorListView(){
+    return SizedBox(
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: sports.length,
+        itemBuilder: (BuildContext context, int index) {
+          return GestureDetector(
+            onTap: (){
+              setState(() {
+                _listViewText = sports[index].name;
+              });
+            },
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                children: [
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset('assets/images/'+sports[index].imgname+'.jpg', width: 200, height: 150, fit: BoxFit.cover,)),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: [
+                        Text(
+                          "Name: " + sports[index].name,
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Color: " + sports[index].color.toString(),
+                          style: TextStyle(color: Colors.white),
+                          textAlign: TextAlign.left,
+                        ),
+                      ],
+                    ),
+                    color: Color(sports[index].color),
+                  ),
+
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
 
 }
