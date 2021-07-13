@@ -30,7 +30,8 @@ class GroceryTile extends StatelessWidget{
                     style: TextStyle(
                         decoration: textDecoration,
                         fontSize: 21.0,
-                        fontWeight: FontWeight.bold),),
+                        fontWeight: FontWeight.bold),
+                  ),
                   const SizedBox(height: 4.0),
                   getDate(),
                   const SizedBox(height: 4.0),

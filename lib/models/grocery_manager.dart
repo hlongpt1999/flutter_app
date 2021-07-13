@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/models/grocery_item.dart';
 
 class GroceryManager extends ChangeNotifier{
-  var _groceryItems = <GroceryItem> [];
+  final _groceryItems = <GroceryItem> [];
   List<GroceryItem> get groceryItems => List.unmodifiable(_groceryItems);
 
   void deleteItem(int index){

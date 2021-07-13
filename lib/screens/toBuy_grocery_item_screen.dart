@@ -10,7 +10,7 @@ class GroceryItemScreen extends StatefulWidget{
   late final Function(GroceryItem)? onCreate;
   late final Function(GroceryItem)? onUpdate;
   late final GroceryItem? originalItem;
-  late final bool isUpdating;
+  late bool isUpdating=false;
 
   GroceryItemScreen( {Key? key, this.onCreate, this.onUpdate, this.originalItem,}): isUpdating = (originalItem != null),
         super(key: key);
@@ -212,8 +212,6 @@ class _GroceryItemScreenState extends State<GroceryItemScreen>{
                 ),
               ),
             ),
-
-
           ],
         ),
       ),

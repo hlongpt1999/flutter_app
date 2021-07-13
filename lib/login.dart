@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/main.dart';
+import 'package:flutter_app/pageSharedPreferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 void main() =>runApp(MyLogin());
@@ -34,6 +35,7 @@ class _LoginAppState extends State<LoginApp>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         padding: EdgeInsets.all(20),
         constraints: BoxConstraints.expand(),
@@ -43,21 +45,34 @@ class _LoginAppState extends State<LoginApp>{
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
 
-            FloatingActionButton.extended(
+            Container(
+              height: 40,
+              child: RaisedButton(
                 onPressed: (){
                   setState(() {
-                    // Fluttertoast.showToast(
-                    //     msg: "aaaaa",
-                    //     toastLength: Toast.LENGTH_SHORT,
-                    //     gravity: ToastGravity.CENTER,
-                    //     timeInSecForIosWeb: 1,
-                    //     backgroundColor: Colors.red,
-                    //     textColor: Colors.white,
-                    //     fontSize: 16.0);
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => HomePage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>pageSharedPreferences()));
                   });
                 },
+                color: Colors.yellow,
+                child: Text("Shared References", style: TextStyle(color: Colors.black),),
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  side: BorderSide(
+                    color: Colors.orangeAccent,
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 15,),
+
+            FloatingActionButton.extended(
+              onPressed: (){
+                setState(() {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => HomePage()));
+                });
+              },
               icon: FlutterLogo(),
               label: Text("Home"),
               backgroundColor: Colors.pink,
@@ -65,7 +80,7 @@ class _LoginAppState extends State<LoginApp>{
 
 
 
-          Padding(
+            Padding(
               padding: const EdgeInsets.fromLTRB(0,20,0,40),
               child: Container(
                 width: 70,
