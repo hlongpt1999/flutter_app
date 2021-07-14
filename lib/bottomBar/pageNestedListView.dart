@@ -9,8 +9,7 @@ import 'package:flutter_app/object/utils.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Photo>> fetchPhotos(http.Client client) async {
-  final response = await client
-      .get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
+  final response = await client.get(Uri.parse('https://jsonplaceholder.typicode.com/photos'));
   return compute(parsePhotos, response.body);
 }
 

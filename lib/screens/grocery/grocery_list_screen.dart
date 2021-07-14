@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/grocery_tile.dart';
 import 'package:flutter_app/models/grocery_manager.dart';
-import 'package:flutter_app/screens/toBuy_grocery_item_screen.dart';
+import 'package:flutter_app/screens/grocery/toBuy_grocery_item_screen.dart';
 
 class GroceryListScreen extends StatelessWidget{
   final GroceryManager manager;

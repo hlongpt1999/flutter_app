@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/models/grocery_manager.dart';
-import 'package:flutter_app/screens/grocery_list_screen.dart';
-import 'package:flutter_app/screens/toBuy_empty_screen.dart';
-import 'package:flutter_app/screens/toBuy_grocery_item_screen.dart';
+import 'package:flutter_app/screens/grocery/grocery_list_screen.dart';
+import 'package:flutter_app/screens/grocery/toBuy_empty_screen.dart';
+import 'package:flutter_app/screens/grocery/toBuy_grocery_item_screen.dart';
 import 'package:provider/provider.dart';
 
 class pageToBuy extends StatefulWidget{

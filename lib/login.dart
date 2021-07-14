@@ -4,6 +4,7 @@ import 'package:flutter_app/home.dart';
 import 'package:flutter_app/main.dart';
 import 'package:flutter_app/pageSharedPreferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_app/pageToDo.dart';
 
 void main() =>runApp(MyLogin());
 
@@ -94,7 +95,7 @@ class _LoginAppState extends State<LoginApp>{
             ),
 
             Text(
-              "HELLO,\nFIRST FLUTTER APP!",
+              "HELLO,\nFIRST FLUTTER APP!\nPress sign in to Stream demo (not user/pass)",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -160,7 +161,7 @@ class _LoginAppState extends State<LoginApp>{
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(40), bottomRight: Radius.circular(40)),
                   ),
                   onPressed: onSignInClick,
-                  child: Text("SIGN IN", style: TextStyle(color: Colors.white, fontSize: 20),),
+                  child: Text("SIGN IN STREAM", style: TextStyle(color: Colors.white, fontSize: 20),),
                 ),
               ),
             ),
@@ -191,6 +192,11 @@ class _LoginAppState extends State<LoginApp>{
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => MyApp()));
       }
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MyApp()));
+
+
     });
   }
 

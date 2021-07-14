@@ -7,7 +7,7 @@ import 'package:flutter_app/bottomBar/pageToBuy.dart';
 import 'package:flutter_app/models/models.dart';
 import 'package:flutter_app/object/sports.dart';
 import 'package:flutter_app/object/utils.dart';
-import 'package:flutter_app/screens/toBuy_empty_screen.dart';
+import 'package:flutter_app/screens/grocery/toBuy_empty_screen.dart';
 import 'package:provider/provider.dart';
 import 'models/models.dart';
 import 'bottomBar/pageListView.dart';

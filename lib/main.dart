@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_app/my_stream.dart';
+import 'package:flutter_app/object/photo.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,12 +33,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  MyStream incrementStream = new MyStream();
+
+  @override
+  void dispose() {
+    incrementStream.dispose();
+    super.dispose();
   }
 
   @override
@@ -50,18 +55,41 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Container(
+              child: StreamBuilder(
+                stream: incrementStream.counterStream,
+                builder: (context, snapshot){
+                  return Text(
+                    snapshot.hasData ? snapshot.data.toString() : "0",
+                    style: TextStyle(fontSize: 79, fontWeight: FontWeight.bold, color: Colors.orangeAccent),
+                  );
+                },
+              ),
+
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                FloatingActionButton(
+                  onPressed: (){
+                    incrementStream.decrement();
+                  },
+                  child: Icon(Icons.arrow_back),
+                ),
+
+                FloatingActionButton(
+                  onPressed: (){
+                    incrementStream.increment();
+                  },
+                  tooltip: 'Increment',
+                  child: Icon(Icons.arrow_forward_sharp),
+                ),
+              ],
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
