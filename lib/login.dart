@@ -1,19 +1,66 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_app/home.dart';
 import 'package:flutter_app/main.dart';
 import 'package:flutter_app/pageSharedPreferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_app/pageToDo.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() =>runApp(MyLogin());
 
 class MyLogin extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp( home: LoginApp(),);
+    return FutureBuilder(
+      // Replace the 3 second delay with your initialization code:
+      future: Future.delayed(Duration(seconds: 4)),
+      builder: (context, AsyncSnapshot snapshot) {
+        // Show splash screen while waiting for app resources to load:
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return MaterialApp(home: Splash());
+        } else {
+          // Loading is done, return the app:
+          return MaterialApp(
+            home: LoginApp(),
+          );
+        }
+      },
+    );
   }
+}
 
+class Splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        color: Colors.orange,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.house_outlined,
+              color: Colors.white,
+                size: MediaQuery.of(context).size.width *0.4,
+              ),
+
+              SizedBox(height: 5,),
+
+              Text("WELCOME TO FLUTTER APP",
+                style: TextStyle(fontSize: MediaQuery.of(context).size.width *0.06,
+                    fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              )
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class LoginApp extends StatefulWidget{
